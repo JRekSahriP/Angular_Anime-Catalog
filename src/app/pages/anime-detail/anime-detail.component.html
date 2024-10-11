@@ -1,0 +1,32 @@
+<button id = "mainpage-button" (click) = "redirectToMainPage()">Return to main Page</button>
+
+<div id = "anime-detail-container">
+  <div id = "anime-container">
+    <div id = "anime-cover">
+      <img id = "anime-image" [src] = "anime.images.jpg.large_image_url" alt = "{{ anime.title }}"/>  
+      <h1>{{ anime.title }} ({{ anime.year }})</h1>
+    </div>
+    <div id = "anime-description">
+      <h3 id = "description-header">Description</h3>
+      <p>{{ anime.synopsis }}</p>
+    </div>
+  </div>
+
+  <h3 id = "additional-infos-header">Additional Information</h3>
+  <ul id = "additional-infos">
+    <li><strong>Status:</strong> {{ anime.status }}</li>
+    <li><strong>Score:</strong> {{ anime.score }}</li>
+    <li><strong>Duration:</strong> {{ anime.duration }}</li>
+    <li><strong>Rating:</strong> {{ anime.rating }}</li>
+    <li><strong>Genres:</strong> 
+      <span *ngFor = "let genre of anime.genres; let last = last">
+        {{ genre.name }}<span *ngIf = "!last">,</span>
+      </span>
+    </li>
+    <li><strong>Producers:</strong>
+      <span *ngFor = "let producer of anime.producers; let last = last">
+        {{ producer.name }}<span *ngIf = "!last">,</span>
+      </span>
+    </li>
+  </ul>
+</div>

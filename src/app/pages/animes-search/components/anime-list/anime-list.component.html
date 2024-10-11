@@ -1,0 +1,15 @@
+<div class = "anime-list">
+    <app-anime-card *ngFor = "let anime of animeList"
+    (click) = "redirectToDetailPage(anime.mal_id)"
+    [id] = "anime.mal_id"
+    [name] = "anime.title"
+    [imageURL] = "anime.images.jpg.image_url"
+    [score] = "anime.score"
+    >
+    </app-anime-card>
+
+    <p *ngIf = "!isLoading && animeList.length === 0">
+        No results found
+    </p>
+    
+</div>

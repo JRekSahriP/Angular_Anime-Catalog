@@ -1,0 +1,16 @@
+<div id = "search-container">
+    <input id = "searchText" [(ngModel)] = "searchText" type = "text"/>
+    <button id = "searchBtn" (click) = "search()">Search</button>
+</div>
+
+<app-anime-list 
+    [search] = "searchText"  
+    [page] = "currentPage">
+</app-anime-list>
+
+<div id = "navigator-container">
+    <button id = "prevPageBtn" *ngIf = "currentPage != 1" (click) = "prevPage()">&#9664;</button>
+    <input  id = "inputPage" [(ngModel)] = "inputPage" type = "number" [placeholder] = "currentPage">
+    <button id = "goToPageBtn" (click) = "goToPage()">🔍</button>
+    <button id = "nextPageBtn" (click) = "nextPage()">&#9654;</button>
+</div>
